@@ -28,12 +28,6 @@
 
 * Verify that EKS Cluster is created and Worker Node Autoscaling group is created 
 
-* Launch an Instance with ami-0bdc9cd24b6322523 in us-east-1 region within same Subnets where your worker nodes are created- This Instance will serve you as kubectl workstation 
-
-* Configure same AWS Access Keys in this workstation Instance and run following commands 
-
-    > aws eks update-kubeconfig --name eks-lab 
-
     > kubectl get svc 
 
     > kubectl get nodes
@@ -44,14 +38,6 @@
 
 * Go to ELB Console, get CNAME of ELB and test that app is working fine
 
-* Lastly, lets enable Private Endpoint Access Control on Cluster 
-
-* Allow workstation security group in Control Plane security group and remove Gateway from Workstation route table 
-
-* Test Private Access Control by running 
+* Clean up deployment and service
 
     > kubectl delete -f tomcat.yaml 
-
-* Clean up lab material 
-
-    > eksctl delete cluster --name=eks-lab --region=us-east-1
